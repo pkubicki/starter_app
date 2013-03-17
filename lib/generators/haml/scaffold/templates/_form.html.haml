@@ -1,0 +1,21 @@
+%fieldset
+<% for attribute in attributes -%>
+  = control_group(f.object, :<%= attribute.name %>) do
+    = f.label :<%= attribute.name %>, :class => "control-label"
+    .controls
+<% unless attribute.reference? -%>
+<% if attribute.date? -%>
+      = f.<%= attribute.form_field_type %> :<%= attribute.name %>, {:'data-date-picker' => true} 
+<% elsif attribute.datetime? -%>
+      = f.<%= attribute.form_field_type %> :<%= attribute.name %>, {:'data-datetime-picker' => true, :value => ldt(f.object.<%= attribute.name %>) }
+<% else -%>
+      = f.<%= attribute.form_field_type %> :<%= attribute.name %> 
+<% end -%>
+<% else -%>
+      = f.collection_select(:<%= attribute.name %>_id, <%= attribute.name.camelize %>.all, :id, :to_s, :prompt => true)
+<% end -%>
+<% end -%>
+
+.form-actions
+  = f.submit(:class => 'btn btn-primary')
+  = link_to(t(:'shared.cancel'), <%= index_helper %>_path, :class => 'btn')

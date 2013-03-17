@@ -1,0 +1,14 @@
+pl:
+  activerecord:
+    models:
+      <%= singular_table_name %>:
+        one: <%= human_name.singularize %>
+        few: <%= human_name.pluralize %>
+        many: <%= human_name.pluralize %>
+        other: <%= human_name.pluralize %>
+    attributes:
+      <%= singular_table_name %>:
+<% for attribute in attributes -%>
+        <%= attribute.name %>: <%= attribute.human_name %>
+<% end -%>
+        

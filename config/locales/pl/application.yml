@@ -1,0 +1,26 @@
+pl:
+  helpers:
+    submit:
+      submit: Zapisz
+      create: Dodaj
+      update: Uaktualnij
+    select:
+      prompt: "-- Wybierz --"
+  shared:
+    app_name: "Starter App"
+    show: Szczegóły
+    new: Dodaj
+    edit: Edycja
+    destroy: Usuń
+    destroy_confirmation: "Czy na pewno chcesz usunąć wybrany obkekt?"
+    destroy_multiple_confirmation: "Czy na pewno chcesz usunąć wybrane obkekty?"
+    xls: Pobierz
+    back: Powrót
+    save: Zapisz
+    cancel: Anuluj
+    lp: lp
+    search: Szukaj
+  menu:
+    sign_out: "Wyloguj"
+    home: "Strona główna"
+

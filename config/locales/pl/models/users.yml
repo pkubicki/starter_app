@@ -1,0 +1,16 @@
+pl:
+  activerecord:
+    models:
+      user:
+        one: Użytkownik
+    attributes:
+      user:
+        login: Login
+        password: Hasło
+        email: E-mail
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              too_weak: "musi zawierać cyfry oraz duże i małe litery"       

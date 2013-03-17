@@ -1,0 +1,75 @@
+.mt0 {margin-top: 0  !important;}
+.mb0 {margin-bottom: 0 !important;}
+.ml0 {margin-left: 0  !important;}
+.mr0 {margin-right: 0 !important;} 
+.mt1 {margin-top: $baseLineHeight / 2 !important;}
+.mb1 {margin-bottom: $baseLineHeight / 2 !important;}
+.ml1 {margin-left: $baseLineHeight / 2 !important;}
+.mr1 {margin-right: $baseLineHeight / 2 !important;} 
+.mt2 {margin-top: $baseLineHeight !important;}
+.mb2 {margin-bottom: $baseLineHeight !important;}
+
+.pt0 {padding-top: 0 !important;}
+.pb0 {padding-bottom: 0 !important;}
+.pl0 {padding-left: 0 !important;}
+.pr0 {padding-right: 0 !important;}
+.pt1 {padding-top: $baseLineHeight / 2 !important;}
+.pb1 {padding-bottom: $baseLineHeight / 2 !important;}
+.pl1 {padding-left: $baseLineHeight / 2 !important;}
+.pr1 {padding-right: $baseLineHeight / 2 !important;}
+
+.bt0 {border-top: 0 !important;}
+.bb0 {border-bottom: 0 !important;}
+.bl0 {border-left: 0 !important;}
+.br0 {border-right: 0 !important;}
+
+.align-right {
+  text-align: right !important;
+}
+
+.block {
+  display: block;
+}
+.inline {
+  display: inline;
+}
+
+.relative {
+  position: relative;
+}
+
+.full-width {
+  width: 100%
+}
+
+.nw {
+  white-space: nowrap;
+}
+
+.centered-inside {
+  text-align: center;
+}
+a.centered-inside {
+  display: block;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.bottom {
+  position: absolute; bottom: 0;
+}
+
+.no-borders {
+  border: 0;
+}
+
+.no-bg {
+  background: none;
+}
+
+.bold {
+  font-weight: bold;
+}
+

@@ -1,0 +1,9 @@
+.header-bar{"data-body-padding-increase" => "45"}
+  .container-fluid
+    .row-fluid
+      .span12
+        %h3.header-bar-header
+          = t(:'.header')
+
+= form_for(@<%= singular_table_name %>, :url => <%= plural_table_name %>_path, :html => { :class => 'form-horizontal' }) do |f|
+  = render(:partial => "form", :locals => {:f => f})

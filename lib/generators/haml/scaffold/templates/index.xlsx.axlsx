@@ -1,0 +1,19 @@
+xlsx_package.workbook.add_worksheet(name: <%= singular_table_name.classify %>.model_name.human(:count => 2)) do |sheet|
+  sheet.add_row [
+<% for attribute in attributes -%>
+    <%= singular_table_name.classify %>.human_attribute_name(:<%= attribute.name %>)<% if attributes.last != attribute -%>,<% end -%>
+<% end -%>
+  ]
+  @<%= plural_table_name %>.each do |<%= singular_table_name %>|
+    sheet.add_row [
+<% for attribute in attributes -%>
+<% if attribute.datetime? -%>
+    l(<%= singular_table_name %>.<%= attribute.name %>),
+<% else -%>
+    <%= singular_table_name %>.<%= attribute.name %><% if attributes.last != attribute -%>,<% end -%> 
+<% end -%>
+<% end -%>
+    ]
+  end
+end   
+

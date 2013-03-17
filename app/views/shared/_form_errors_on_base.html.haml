@@ -1,0 +1,5 @@
+- if object.errors[:base].any?
+  .alert.alert-block.alert-error
+    %ul
+      - object.errors[:base].each do |msg|
+        %li= msg

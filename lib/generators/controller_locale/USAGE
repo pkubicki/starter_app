@@ -1,0 +1,5 @@
+Description:
+    Locale generator for controllers
+
+Example:
+    rails generate controller_locale [attributes]

@@ -1,0 +1,15 @@
+= form_tag(sign_in_path, {:class => 'form-horizontal'}) do
+  %fieldset
+    .control-group
+      %label.control-label{:for => "login"}
+        = t(:'.login')
+      .controls
+        = text_field_tag :login, params[:login], :class => 'input-xlarge span3'
+    .control-group
+      %label.control-label{:for => "password"}
+        = t(:'.password')
+      .controls
+        = password_field_tag :password, params[:password], :value => '', :class => 'input-xlarge span3'
+    .control-group
+      .controls
+        = submit_tag(t(:".sign_in"), :class => 'btn btn-primary')

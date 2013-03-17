@@ -1,0 +1,23 @@
+/*
+ * Body
+ */
+
+body {
+  padding-top: 41px + $baseLineHeight;
+  padding-bottom: $baseLineHeight * 1.5;
+}
+
+/*
+ * Footer
+ */
+
+.footer {
+  height: $baseLineHeight * 1.5;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  border-top: 1px solid $navbarInverseBorder;
+  color: $navbarInverseText; 
+  @include gradient-vertical($navbarInverseBackgroundHighlight, $navbarInverseBackground);
+}
+

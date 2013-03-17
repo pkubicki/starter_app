@@ -1,0 +1,22 @@
+/*
+ * Header Bar
+ */
+
+.header-bar {
+  height: 46px;
+  width: 100%;
+  position: fixed;
+  top: 40px;
+  right: 0;
+  z-index: 1;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 3px 6px #999;
+  -moz-box-shadow: 0 3px 6px #999;
+  box-shadow: 0 3px 6px #999;
+}
+
+.header-bar .header-bar-header {
+  line-height: 46px;
+  margin-top: 0px;
+}
+

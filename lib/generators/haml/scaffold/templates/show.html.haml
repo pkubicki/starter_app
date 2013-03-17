@@ -1,0 +1,21 @@
+.header-bar{"data-body-padding-increase" => "45"}
+  .container-fluid
+    .row-fluid
+      .span12
+        %h3.header-bar-header
+          = t(:'.header') 
+
+%dl
+<% for attribute in attributes -%>
+  %dt= <%= singular_table_name.camelize %>.human_attribute_name(:<%= attribute.name %>)
+<% if attribute.datetime? -%>
+  %dd= l @<%= singular_table_name %>.<%= attribute.name %>
+<% else -%>
+  %dd= @<%= singular_table_name %>.<%= attribute.name %>
+<% end -%>
+<% end -%>
+
+.form-actions
+  = link_to_with_icon(t(:'shared.back'), 'icon-arrow-left', <%= index_helper %>_path, :class => 'btn')
+  = link_to_with_icon(t(:'shared.edit'), 'icon-edit icon-white', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), :class => 'btn btn-primary') if allowed_to?(:edit)
+  = link_to_with_icon(t(:'shared.destroy'), 'icon-trash icon-white', <%= singular_table_name %>_path(@<%= singular_table_name %>), :class => 'btn btn-danger', :method => :delete, :confirm => t(:'shared.destroy_confirmation')) if allowed_to?(:destroy)

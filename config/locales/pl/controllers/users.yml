@@ -1,0 +1,16 @@
+pl:
+  users:
+    sessions:
+      new:
+        sign_in: Zaloguj
+        remind_password: 'Przypomnienie hasła'
+        login: Login
+        password: Hasło
+  flash:
+    users:
+      sessions:
+        create:
+          notice: 'Logowanie zakończone powodzeniem.'
+          alert: 'Nieprawidłowy login lub hasło.'
+        destroy:
+          notice: 'Wylogowanie zakończone powodzeniem.'

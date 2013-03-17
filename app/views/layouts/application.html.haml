@@ -1,0 +1,24 @@
+= content_for(:'javascripts') do
+  = javascript_include_tag('application')
+= content_for(:content) do
+  %header
+    .navbar.navbar-inverse.navbar-fixed-top
+      .navbar-inner
+        .container-fluid
+          .row-fluid
+            %a.brand{:href => root_path}
+              = t(:'shared.app_name')
+            .nav-collapse
+              - if logged_in?
+                = render(partial: 'layouts/menu')
+  %section
+    .container-fluid
+      .row-fluid
+        .span12
+          = flash_messages
+          = content_for?(:content) ? yield(:content) : yield
+  %footer.footer
+    .container-fluid
+      .row-fluid
+        .span12
+= render :template => 'layouts/base'
