@@ -24,4 +24,6 @@ pickle-email-*.html
 coverage
 config/database.yml
 config/settings.yml
+db/schema.rb
 TODO.md
+
