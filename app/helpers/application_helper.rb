@@ -1,24 +1,27 @@
 module ApplicationHelper
   def flash_messages
-    render partial: "shared/flash_message"
+    if flash.keys.size > 0
+      raw(
+        flash.map do |type, message| 
+          content_tag(:div, message, class: "alert #{alert_class(type)}")
+        end.join
+      )
+    end
   end
 
   def alert_class(type)
     "alert-#{{ alert: 'error', notice: 'success' }.fetch(type, type.to_s)}"
   end
 
-  def form_errors(object)
-    if object.respond_to? :object
-      object = object.object
-    end
-    render partial: "shared/form_errors", locals: {object: object}
-  end
-
   def form_errors_on_base(object)
-    if object.respond_to? :object
-      object = object.object
+    object = object.object if object.respond_to?(:object)
+    if object.errors[:base].any?
+      content_tag(:div, class: "alert alert-block alert-error") do
+        content_tag(:ul) do
+          raw(object.errors[:base].map {|msg| content_tag(:li, msg)}.join)
+        end
+      end
     end
-    render partial: "shared/form_errors_on_base", locals: {object: object}
   end
 
   def control_group(object, attribute, html_class = nil)

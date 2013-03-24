@@ -10,10 +10,9 @@ require 'rspec/autorun'
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
-  # ## Mock Framework
-
   config.include FactoryGirl::Syntax::Methods
-
+  
+  # ## Mock Framework
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
   #
   # config.mock_with :mocha

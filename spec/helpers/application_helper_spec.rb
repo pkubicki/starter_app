@@ -1,16 +1,17 @@
 require 'spec_helper'
 
 describe ApplicationHelper do
+  include Capybara::DSL
+
   describe "#flash_messages" do
     before do
       flash[:notice] = "Lorem ipsum"
     end
 
-    it { expect(helper.flash_messages).to match(/Lorem ipsum/) }
+    subject { Capybara.string(helper.flash_messages)}
 
-    it("has alert-success class") do 
-      expect(helper.flash_messages).to match(/alert-success/)
-    end
+    it { should have_css('div.alert.alert-success') }
+    it { should have_content('Lorem ipsum') }
   end
 
   describe "#alert_class" do
@@ -29,16 +30,17 @@ describe ApplicationHelper do
 
   describe "#form_errors_on_base" do
     let(:object) { double(:object, errors: {base: ['Lorem ipsum']}) }
-    
-    it { expect(helper.form_errors_on_base(object)).to match(/Lorem ipsum/) }
+    subject { Capybara.string(helper.form_errors_on_base(object)) }
+
+    it { should have_selector('div.alert.alert-block.alert-error ul li') } 
+    it { should have_content('Lorem ipsum') }
   end
   
   describe "#control_group" do
-    let(:object) { double(:object, errors: {title: ['Lorem ipsum']}) }
-    
-    it('has error class') do 
-      expect(helper.control_group(object, :title) {}).to match(/error/) 
-    end
+    let(:object) { double(:object, errors: {title: ['required']}) }
+    subject { Capybara.string(helper.control_group(object, :title) {}) }
+
+    it { should have_selector('div.control-group.error') } 
   end 
 
   describe "#currency" do
