@@ -1,5 +1,5 @@
 class Users::SessionsController < ApplicationController
-  skip_before_filter :require_login, except: [:destroy]
+  skip_after_filter :verify_authorized
 
   def new
   end

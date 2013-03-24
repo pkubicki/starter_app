@@ -1,5 +1,13 @@
 pl:
   users:
+    index:
+      header: Użytkownicy
+    new:
+      header: Nowy Użytkownik
+    edit:
+      header: Edycja Użytkownika
+    show:
+      header: Szczegóły Użytkownika
     sessions:
       new:
         sign_in: Zaloguj
@@ -8,9 +16,20 @@ pl:
         password: Hasło
   flash:
     users:
+      create:
+        alert: 'Podane dane są nieprawidłowe lub niekompletne.'
+      update:
+        alert: 'Podane dane są nieprawidłowe lub niekompletne.' 
       sessions:
         create:
           notice: 'Logowanie zakończone powodzeniem.'
           alert: 'Nieprawidłowy login lub hasło.'
         destroy:
           notice: 'Wylogowanie zakończone powodzeniem.'
+  helpers:
+    submit:
+      user:
+        submit: Zapisz
+        create: Dodaj
+        update: Uaktualnij
+ 

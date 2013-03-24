@@ -1,0 +1,11 @@
+xlsx_package.workbook.add_worksheet(name: User.model_name.human(:count => 2)) do |sheet|
+  sheet.add_row [
+    User.human_attribute_name(:login),    User.human_attribute_name(:email)  ]
+  @users.each do |user|
+    sheet.add_row [
+    user.login, 
+    user.email 
+    ]
+  end
+end   
+

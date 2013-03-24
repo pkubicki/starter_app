@@ -22,5 +22,5 @@ pl:
     search: Szukaj
   menu:
     sign_out: "Wyloguj"
-    home: "Strona główna"
+    users: "Użytkownicy"
 

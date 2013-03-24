@@ -3,6 +3,9 @@ pl:
     models:
       user:
         one: Użytkownik
+        few: Użytkownicy
+        many: Użytkowników
+        other: Użytkowników
     attributes:
       user:
         login: Login

@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
     confirmation: { if: :password }
   validate :password_strength, if: :password
 
+  def group_name
+    'administrator'
+  end
+
   private
 
   def password_strength

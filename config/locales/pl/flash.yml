@@ -10,3 +10,4 @@ pl:
         alert: '%{resource_name} nie został pomyślnie usunięty.'
       destroy_multiple:
         notice: 'Wybrane obiekty zostały pomyślnie usunięte.'
+    login_required: 'Zaloguj się do serwisu aby wykonać żądaną akcję.'

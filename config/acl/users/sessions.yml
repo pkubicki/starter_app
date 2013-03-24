@@ -1,0 +1,3 @@
+new: allow_all
+create: allow_all
+destroy: administrator

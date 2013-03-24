@@ -1,0 +1,50 @@
+= search_form_for @q, :url => users_path, :html => {:method => :get, :id => 'list-form'} do |f|
+  .header-bar{"data-body-padding-increase" => "45"}
+    .container-fluid
+      .row-fluid
+        .span6
+          %h3.header-bar-header
+            = t(:'.header')
+        .span6
+          .btn-toolbar.pull-right
+            = button_with_icon(t(:'shared.search'), 'icon-search', {:class => "btn"})
+            = token_tag(nil)
+            = link_to_with_icon(t(:'shared.destroy'), 'icon-trash icon-white', destroy_multiple_users_path, {:class => "btn btn-danger ml1", :'data-confirm-and-submit' => t(:'shared.destroy_multiple_confirmation'), :'data-form-method' => 'delete'}) if allowed_to?(:destroy_multiple)
+            = link_to_with_icon(t(:'shared.new'), 'icon-plus-sign icon-white', new_user_path, {:class => "btn btn-primary ml1"}) if allowed_to?(:new)
+            = link_to_with_icon(t(:'shared.xls'), 'icon-download icon-white', users_path(params.merge(format: 'xlsx')), {:class => "btn btn-info ml1"}) if allowed_to?(:index)
+
+  %table.table.table-striped.table-bordered.table-width-auto{"data-with-checkboxes" => "true"}
+    %thead
+      %tr
+        %th= t(:'shared.lp')
+        %th
+          = f.sort_link :login, User.human_attribute_name(:login)
+        %th
+          = f.sort_link :email, User.human_attribute_name(:email)
+        %th
+        %th
+    %tbody
+      %tr.search-row
+        %td
+        %td
+          = f.text_field :login_cont
+        %td
+          = f.text_field :email_cont
+        %td
+        %td
+      - i=0
+      - @users.each do |user|
+        %tr{:id => dom_id(user), :'data-object-id' => user.id}
+          %td
+            = i+=1
+          %td
+            = user.login 
+          %td
+            = user.email 
+          %td  
+            = link_to_with_icon(t(:'shared.show'), 'icon-list-alt icon-white', user_path(user), {:class => "btn btn-primary btn-small"}) if policy(user).show? 
+          %td
+            = link_to_with_icon(t(:'shared.edit'), 'icon-edit icon-white', edit_user_path(user), {:class => "btn btn-primary btn-small"}) if policy(user).edit?
+ 
+= paginate @users
+

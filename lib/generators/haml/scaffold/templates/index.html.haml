@@ -9,7 +9,7 @@
           .btn-toolbar.pull-right
             = button_with_icon(t(:'shared.search'), 'icon-search', {:class => "btn"})
             = token_tag(nil)
-            = link_to_with_icon(t(:'shared.destroy'), 'icon-trash icon-white', destroy_multiple_<%= plural_table_name %>_path, {:class => "btn btn-danger ml1", :'data-confirm-and-submit' => t(:'shared.destroy_multiple_confirmation'), :'data-form-method' => 'delete'}) if allowed_to?(:destroy)
+            = link_to_with_icon(t(:'shared.destroy'), 'icon-trash icon-white', destroy_multiple_<%= plural_table_name %>_path, {:class => "btn btn-danger ml1", :'data-confirm-and-submit' => t(:'shared.destroy_multiple_confirmation'), :'data-form-method' => 'delete'}) if allowed_to?(:destroy_multiple)
             = link_to_with_icon(t(:'shared.new'), 'icon-plus-sign icon-white', new_<%= singular_table_name %>_path, {:class => "btn btn-primary ml1"}) if allowed_to?(:new)
             = link_to_with_icon(t(:'shared.xls'), 'icon-download icon-white', <%= plural_table_name %>_path(params.merge(format: 'xlsx')), {:class => "btn btn-info ml1"}) if allowed_to?(:index)
 
@@ -62,9 +62,9 @@
 <% end -%>
 <% end -%>
           %td  
-            = link_to_with_icon(t(:'shared.show'), 'icon-list-alt icon-white', <%= singular_table_name %>_path(<%= singular_table_name %>), {:class => "btn btn-primary btn-small"}) if allowed_to?(:show)
+            = link_to_with_icon(t(:'shared.show'), 'icon-list-alt icon-white', <%= singular_table_name %>_path(<%= singular_table_name %>), {:class => "btn btn-primary btn-small"}) if policy(<%= singular_table_name %>).show? 
           %td
-            = link_to_with_icon(t(:'shared.edit'), 'icon-edit icon-white', edit_<%= singular_table_name %>_path(<%= singular_table_name %>), {:class => "btn btn-primary btn-small"}) if allowed_to?(:edit)
+            = link_to_with_icon(t(:'shared.edit'), 'icon-edit icon-white', edit_<%= singular_table_name %>_path(<%= singular_table_name %>), {:class => "btn btn-primary btn-small"}) if policy(<%= singular_table_name %>).edit?
  
 = paginate @<%= plural_table_name %>
 

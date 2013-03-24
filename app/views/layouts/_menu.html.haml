@@ -1,8 +1,7 @@
 %ul.nav
   = nav_link_to_with_icon('', 'icon-home icon-white', root_path, {:class => 'opacity-menu'})
-  = nav_dropdown(t(:'menu.home')) do
-    = nav_link_to(t(:'menu.home'), root_path)
-    = nav_link_to(t(:'menu.home'), root_path)
+  = nav_dropdown(t(:'menu.users')) do
+    = nav_link_to(t(:'menu.users'), users_path)
 %ul.nav.pull-right
   %li
     .btn-group

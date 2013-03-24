@@ -1,0 +1,8 @@
+index: administrator
+show: administrator
+new: administrator
+create: administrator
+edit: administrator
+update: administrator
+destroy: administrator
+destroy_multiple: administrator

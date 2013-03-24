@@ -1,0 +1,21 @@
+%fieldset
+  = control_group(f.object, :login) do
+    = f.label :login, :class => "control-label"
+    .controls
+      = f.text_field :login 
+  = control_group(f.object, :email) do
+    = f.label :email, :class => "control-label"
+    .controls
+      = f.text_field :email 
+  = control_group(f.object, :password) do
+    = f.label :password, :class => "control-label"
+    .controls
+      = f.password_field :password 
+  = control_group(f.object, :password_confirmation) do
+    = f.label :password_confirmation, :class => "control-label"
+    .controls
+      = f.password_field :password_confirmation 
+                              
+.form-actions
+  = f.submit(:class => 'btn btn-primary')
+  = link_to(t(:'shared.cancel'), users_path, :class => 'btn')
