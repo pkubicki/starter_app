@@ -22,8 +22,8 @@ gem "axlsx_rails", "~> 0.1.4"
 group :assets do
   gem 'sass-rails', '~> 3.2.3'
   gem 'bootstrap-sass', '~> 2.3.0.1'
-  # gem 'therubyracer', :platforms => :ruby
-  # gem 'uglifier', '>= 1.0.3'
+  gem 'therubyracer', :platforms => :ruby
+  gem 'uglifier', '>= 1.0.3'
 end
 
 group :development, :test do

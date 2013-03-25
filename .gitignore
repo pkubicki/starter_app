@@ -25,5 +25,6 @@ coverage
 config/database.yml
 config/settings.yml
 db/schema.rb
+public/assets/
 TODO.md
 

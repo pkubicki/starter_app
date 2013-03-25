@@ -83,6 +83,8 @@ module StarterApp
         dir: "spec/factories"
     end
 
+    config.exceptions_app = self.routes
+
     require Rails.root.join("lib/monkey_patches/ostruct_ext.rb") 
   end
 end
