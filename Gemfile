@@ -12,7 +12,6 @@ gem "jquery-rails", "~> 2.0.1"
 gem "jquery-ui-rails", "~> 4.0.1"
 gem "rails-i18n", "~> 0.7.2"
 
-
 gem "pundit", "~> 0.2.0"
 gem "yamled_acl", "~> 0.3.0"
 gem "ransack", "~> 0.7.2"
@@ -40,3 +39,7 @@ group :test do
   gem 'simplecov', '~> 0.7.1', :require => false
 end 
 
+group :production do
+  gem "exception_notification", "~> 3.0.1"
+end
+ 
