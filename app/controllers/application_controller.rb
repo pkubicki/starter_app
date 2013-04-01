@@ -2,10 +2,9 @@ class ApplicationController < ActionController::Base
   include Pundit
   protect_from_forgery
   responders :flash
-  layout :current_layout
   before_filter :authorize_action
   after_filter :verify_authorized, except: [:index, :destroy_multiple]
-  rescue_from YamledAcl::AccessDenied, with: 'access_denied'
+  rescue_from YamledAcl::AccessDenied, with: :access_denied
   
   private
 
@@ -16,10 +15,6 @@ class ApplicationController < ActionController::Base
 
   def not_authenticated
     redirect_to root_path, alert: t(:'flash.login_required')
-  end 
-
-  def current_layout
-    'application'
   end 
 
   def xlsx_filename(resource_class)
